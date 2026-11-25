@@ -1,0 +1,14 @@
+[[rule]]
+toolName = "*"
+decision = "deny"
+priority = 997
+
+[[rule]]
+toolName = ["list_directory", "read_file", "glob", "grep_search"]
+decision = "allow"
+priority = 998
+
+[[rule]]
+toolName = ["replace", "write_file"]
+decision = "ask_user"
+priority = 999

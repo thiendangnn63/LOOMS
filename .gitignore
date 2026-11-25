@@ -1,0 +1,5 @@
+.room/
+/node_modules/
+/looms-rooms-*.tgz
+/opencode/
+/tmux-bridge-mcp/
