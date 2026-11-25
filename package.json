@@ -1,41 +1,22 @@
 {
   "name": "looms-rooms",
-  "version": "0.2.15",
+  "version": "0.2.16",
   "description": "LOOMS · Shared terminal rooms for language models",
+  "repository": "https://github.com/thiendangnn63/LOOMS.git",
   "type": "module",
   "bin": {
-    "looms": "./looms.mjs"
+    "looms": "./bin/looms.mjs"
   },
   "files": [
-    "looms*.mjs",
-    "!looms*.test.mjs",
-    "chat-room.mjs",
-    "room-host.mjs",
-    "room-contracts.mjs",
-    "room-isolation.mjs",
-    "room-log.mjs",
-    "room-activity.mjs",
-    "room-assignment.mjs",
-    "room-mcp.mjs",
-    "room-metrics.mjs",
-    "room-job.mjs",
-    "room-plan.mjs",
-    "room-plan-patch.mjs",
-    "room-plan-store.mjs",
-    "room-provider-commands.mjs",
-    "room-services.mjs",
-    "room-demo.mjs",
-    "room-scheduler.mjs",
-    "room-summary.mjs",
-    "room-tools.mjs",
-    "room-workspace.mjs",
-    "EXECUTION_PLAN.md"
+    "bin/",
+    "src/",
+    "docs/assets/looms.png"
   ],
   "engines": {
     "node": ">=22"
   },
   "scripts": {
-    "test": "node --test ccgpt.test.mjs chat-room.test.mjs looms.test.mjs room-host.test.mjs room-isolation.test.mjs room-job.test.mjs room-log.test.mjs room-model.test.mjs room-plan.test.mjs room-providers.test.mjs room-summary.test.mjs room-tools.test.mjs"
+    "test": "node --test test/*.test.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/client": "2.4.0"

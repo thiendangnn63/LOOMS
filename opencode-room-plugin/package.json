@@ -1,8 +1,0 @@
-{
-  "name": "ccgpt-opencode-room",
-  "private": true,
-  "type": "module",
-  "exports": {
-    "./tui": "./tui.tsx"
-  }
-}

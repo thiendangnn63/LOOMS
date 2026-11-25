@@ -4,9 +4,9 @@
 | --- | --- |
 | §3.1, §4.1–4.4 | Ordinary room chat uses a bounded, sequential round. Leading handles direct a message to the named members. Within an ordinary round, a peer mention may influence turn order. Parallel job workers use one snapshot per run start. |
 | §3.2 | Warm provider sessions receive unread messages and skip their own prior replies. The prompt uses a bounded window of the unread messages. A fresh session receives recent context from the room. |
-| §3, OpenCode history | OpenCode's undo, fork, and history changes can change the active context. The room records a conversation rebase and appends the replacement transcript while retaining every earlier record. The line-oriented `/new` starts a fresh active conversation with a logged reset. |
+| §3, history | The room keeps earlier log records when starting a fresh active conversation. |
 | §6–7, §10–11 | The existing `/job <goal>` delegates work immediately and uses JSON worker responses and delivery checks. `/retry` takes a numeric job ID. `/job --plan <goal>` and `/job --planner @agent <goal>` use the new validated planning flow. |
-| §12 | The room launches each vendor's CLI with its existing login. Codex and Claude keep conversation processes warm, with Claude resume on an idle exit. Missing provider usage and costs are omitted from log records. |
+| §12 | LOOMS uses provider connections from `/accounts`. Claude runs through Claude Code, while Codex and Gemini use their connected APIs. Missing usage and costs are omitted from log records. |
 
 The handoff describes an existing summarizer. This checkout had a prompt builder and persisted room settings. M2 added the room-scoped `AGENTS.md` writer.
 
@@ -14,7 +14,7 @@ The handoff describes an existing summarizer. This checkout had a prompt builder
 
 - A round's snapshot is the input its runs consumed. It is copied at the start of that round and retained. The output from summarizing a completed round updates the live `AGENTS.md` and becomes the next round's input.
 - The byte cap is conservative for byte-based tokenizers. If pinned sections alone exceed the cap, the prior summary is retained. Decisions remain verbatim in `decisions.jsonl`.
-- The model summarizer is opt-in through `CCGPT_ROOM_SUMMARIZER=provider:model`. Without that setting, the room uses log-backed progress and code-generated sections. A default model and vendor policy are still open.
+- The model summarizer is opt-in through `LOOMS_SUMMARIZER=provider:model`. Without that setting, the room uses log-backed progress and code-generated sections.
 
 ## Contract approval
 
